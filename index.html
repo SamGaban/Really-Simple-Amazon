@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>#</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/big-mobile.css">
+    <link rel="stylesheet" href="assets/css/tablet.css">
+    <link rel="stylesheet" href="assets/css/desktop.css">
+    <link rel="stylesheet" href="assets/css/large-screen.css">
+</head>
+<body>
+
+    <h1>Tiny Store</h1>
+
+    <section id="store-items">
+        <div id="articleflexbox" class="container">
+            <article class="container">
+                <img alt="exercise picture" src="assets/images/chair.png">
+                <h3>Ultimate Gaming Chair</h3>
+                <h5>69.99€</h5>
+                <button onclick="StoreAdd(1)">Add to Cart</button>
+            </article>
+            <article class="container">
+                <img alt="exercise picture" src="assets/images/desk.png">
+                <h3>Gamer Desk</h3>
+                <h5>189.99€</h5>
+                <button onclick="StoreAdd(2)">Add to Cart</button>
+            </article>
+            <article class="container">
+                <img alt="exercise picture" src="assets/images/gaming-desk.png">
+                <h3>Prime Gamer Desk</h3>
+                <h5>234.99€</h5>
+                <button onclick="StoreAdd(3)">Add to Cart</button>
+            </article>
+            <article class="container">
+                <img alt="exercise picture" src="assets/images/bed.png">
+                <h3>Gamer Bed</h3>
+                <h5>549.99€</h5>
+                <button onclick="StoreAdd(4)">Add to Cart</button>
+            </article>
+            <article class="container">
+                <img alt="exercise picture" src="assets/images/lamp.png">
+                <h3>Gamer Lamp</h3>
+                <h5>21.99€</h5>
+                <button onclick="StoreAdd(5)">Add to Cart</button>
+            </article>
+        </div>
+    </section>
+
+    <section id="cart">
+        <div class="container">
+            <h2>Cart</h2>
+            <h3>Total Price:</h3>
+            <p id="price"></p>
+            <ul id="articleList">
+                <li class="item1"></li>
+                <li class="item2"></li>
+                <li class="item3"></li>
+                <li class="item4"></li>
+                <li class="item5"></li>
+            </ul>
+        </div>
+    </section>
+
+<script src="index.js"></script>
+</body>
+</html>
