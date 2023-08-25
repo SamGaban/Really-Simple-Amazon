@@ -6,6 +6,28 @@ let items = [
     {id: 5, name:'Gamer Lamp', price:19.99, source:"assets/images/lamp.png", cart:0}
 ];
 
+function minusOne(num) {
+    let divToTouch = document.getElementsByClassName(`div-item${num}`);
+    // Total - value of the item
+    let priceHtml = document.getElementById("price");
+    priceHtml.innerText = `${(total - items[num].price).toFixed(2)} €`;
+    // Cart - 1
+    items[num].cart -= 1;
+    console.log(items[num].cart);
+    // Total -= price of item
+    total -= items[num].price;
+    // Subtotal - value of the item
+    let subTotalItemDesc = document.getElementsByClassName(`subtotal-item${items[num].id}`);
+    subTotalItemDesc[0].textContent = `${items[num].cart} X : ${(items[num].cart * items[num].price).toFixed(2)} €`;
+    divToTouch[0].appendChild(subTotalItemDesc);
+    // If subquantity = 0 => delete item from sub menu
+    if (items[num].cart == 0) {
+        console.log("bibou")
+        // let divToAim = document.getElementById("appendable");
+        // divToAim.removeChild(divToTouch);
+        // console.log(divToAim + divToTouch);
+    }
+}
 
 
 function StoreAdd(num) {
@@ -14,12 +36,13 @@ function StoreAdd(num) {
     // ITEM SPECIFIC SUB TOTAL
     if (items[num].cart == 0) {
         items[num].cart += 1;
-        // HR Separator
-        
         // Container that's gonna be appended to the main container
         let mainContainer = document.getElementById("appendable");
         let division = document.createElement("div");
         division.setAttribute("class", `div-item${items[num].id}`);
+        // HR Separator
+        let hrspeparator = document.createElement("hr");
+        division.appendChild(hrspeparator);
         // Name of the item
         let subTotalItem = document.createElement("h5");
         subTotalItem.textContent = items[num].name;
@@ -27,11 +50,14 @@ function StoreAdd(num) {
         division.appendChild(subTotalItem);
         // Number of orders of the item and total price item generated
         let subTotalItemDesc = document.createElement("p");
-        subTotalItemDesc.setAttribute("class", `subtotal-item${items[num].id}`)
+        subTotalItemDesc.setAttribute("class", `subtotal-item${items[num].id}`);
         subTotalItemDesc.textContent = `${items[num].cart} X : ${(items[num].cart * items[num].price).toFixed(2)} €`;
         division.appendChild(subTotalItemDesc);
         // Delete Button
-
+        let deleteButton = document.createElement("button");
+        deleteButton.setAttribute("onclick", `minusOne(${num})`);
+        deleteButton.textContent = "Remove one";
+        division.appendChild(deleteButton);
         // Final Append
         mainContainer.appendChild(division);
     } else {
@@ -45,8 +71,6 @@ function StoreAdd(num) {
 }
 
 let total = 0;
-
-
 
 
 for (let i = 0; i < items.length; i++) {
