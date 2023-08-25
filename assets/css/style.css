@@ -56,7 +56,7 @@ body {
 #articleflexbox {
     display: flex;
     flex-wrap: wrap;
-    max-width: 90vw;
+    max-width: 95vw;
 }
 
 /*Individual store items blocks*/
